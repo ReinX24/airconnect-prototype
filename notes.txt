@@ -1,0 +1,25 @@
+# Start the PHP server with root document
+# This assumes that you are currently on the demo directory
+php -S localhost:8080 -t public
+
+# Composer Notes
+
+# Creating a composer.json file
+composer init
+
+# Installing composer dependencies
+composer install
+
+# Updating autoloading
+composer dump-autoload
+
+# Requiring a package
+composer require {package name}
+
+composer require illuminate/collections
+composer require pestphp/pest
+
+# Using pestphp
+./vendor/bin/pest --init
+vendor/bin/pest
+.\vendor\bin\pest .\tests\Unit\ValidatorTest.php

@@ -1,0 +1,27 @@
+{
+    "name": "reinx/demo",
+    "version": "1",
+    "authors": [
+        {
+            "name": "Rein",
+            "email": "reinX244@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^11.27"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

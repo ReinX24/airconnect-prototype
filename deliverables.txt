@@ -1,0 +1,7 @@
+[Deliverables]
+- Dashboard Page
+- Login Page
+- Signup Page
+- Products Page
+- Product Info Page
+- Cart Page
