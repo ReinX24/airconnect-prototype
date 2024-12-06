@@ -19,7 +19,8 @@ class Authenticator
                 // Log in the user if the credentials match.
                 $this->login([
                     'id' => $user["id"],
-                    'email' => $user["email"]
+                    'name' => $user["name"],
+                    'email' => $user["email"],
                 ]);
 
                 // If the password is verified, then the user is authenticated.
@@ -30,7 +31,7 @@ class Authenticator
         return false;
     }
 
-    public function attemptRegister($email, $password)
+    public function attemptRegister($name, $email, $password)
     {
         $db = App::resolve(Database::class);
         // Check if the account already exists
@@ -47,8 +48,11 @@ class Authenticator
         } else {
             // If not, save one to the database, and then log the user in, and redirect.
             $db->query(
-                "INSERT INTO users (email, password) VALUES (:email, :password)",
+                "INSERT INTO users 
+                    (name, email, password) 
+                VALUES (:name, :email, :password)",
                 [
+                    'name' => $name,
                     'email' => $email,
                     'password' => password_hash($password, PASSWORD_DEFAULT)
                 ]
@@ -61,6 +65,7 @@ class Authenticator
             // Mark that the user has logged in.
             $this->login([
                 'id' => $user["id"],
+                'name' => $name,
                 'email' => $email
             ]);
 
@@ -72,6 +77,7 @@ class Authenticator
     {
         $_SESSION['user'] = [
             'id' => $user['id'],
+            'name' => $user['name'],
             'email' => $user['email']
         ];
 

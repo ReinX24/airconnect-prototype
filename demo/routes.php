@@ -2,6 +2,13 @@
 
 $router->get('/', 'index.php');
 $router->get('/about', 'about.php');
+
+$router->get('/products', 'products/index.php');
+$router->get('/product', 'products/show.php');
+
+$router->post('/cart/add', 'cart/store.php');
+
+//* START OF LEFTOVERS FROM PAST APPLICATION
 $router->get('/contact', 'contact.php');
 
 $router->get('/notes', 'notes/index.php')->only('auth');
@@ -13,6 +20,7 @@ $router->post('/note', 'notes/store.php');
 
 $router->patch('/note', 'notes/update.php');
 $router->delete('/note', 'notes/destroy.php');
+//* END OF LEFTOVERS FROM PAST APPLICATION
 
 $router->get('/register', 'registration/create.php')->only('guest'); // goes to register page
 $router->post('/register', 'registration/store.php')->only('guest'); // goes to registration controller

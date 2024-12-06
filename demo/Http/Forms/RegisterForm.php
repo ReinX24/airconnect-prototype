@@ -11,6 +11,10 @@ class RegisterForm
 
     public function __construct(public array $attributes)
     {
+        if (!Validator::string($attributes["name"])) {
+            $this->errors["name"] = "Please provide a valid name.";
+        }
+
         if (!Validator::email($attributes["email"])) {
             $this->errors['email'] = 'Please provide a valid email address.';
         }

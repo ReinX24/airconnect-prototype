@@ -11,7 +11,7 @@ $currentUserId = $db->query("SELECT id FROM users WHERE email = :email", [
 
 $notes = $db
     ->query("SELECT * FROM notes WHERE user_id = :user_id", ['user_id' => $currentUserId["id"]])
-    ->get();
+    ->all();
 
 view('notes/index.view.php', [
     'heading' => 'My Notes',

@@ -5,18 +5,14 @@ namespace Http\Forms;
 use Core\Validator;
 use Core\ValidationException;
 
-class LoginForm
+class AddToCartForm
 {
     protected $errors = [];
 
     public function __construct(public array $attributes)
     {
-        if (!Validator::email($attributes["email"])) {
-            $this->errors['email'] = 'Please provide a valid email address.';
-        }
-
-        if (!Validator::string($attributes["password"])) {
-            $this->errors['password'] = 'Please provide a valid password.';
+        if (!Validator::string($attributes["quantity"])) {
+            $this->errors['quantity'] = 'Quantity cannot be empty.';
         }
     }
 

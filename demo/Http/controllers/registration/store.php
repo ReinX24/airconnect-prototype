@@ -8,12 +8,14 @@ use Http\Forms\RegisterForm;
 
 $form = RegisterForm::validate(
     $attributes = [
+        "name" => $_POST["name"],
         "email" => $_POST['email'],
-        "password" => $_POST['password']
+        "password" => $_POST['password'],
     ]
 );
 
 $registeredAccount = (new Authenticator)->attemptRegister(
+    $attributes["name"],
     $attributes["email"],
     $attributes["password"]
 );
@@ -25,14 +27,3 @@ if (!$registeredAccount) {
 
 // If the user successfully registers their account, 
 redirect("/");
-
-// Validate the form inputs.
-// if ((new Authenticator)->attemptRegister($email, $password)) {
-//     redirect("/");
-// }
-
-// If the email and password are valid but cannot register account.
-// return view('registration/create.view.php', [
-//     'email' => $email,
-//     'errors' => $form->errors(),
-// ]);

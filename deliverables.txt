@@ -1,7 +1,18 @@
 [Deliverables]
-- Dashboard Page
-- Login Page
-- Signup Page
-- Products Page
-- Product Info Page
+# Pages
+- Landing Page X
+- Login Page X
+- Signup Page X
+- About Page
+- Products Page X
+- Product Info Page X
 - Cart Page
+- Redesign Login and Register Page
+
+# Features & Functionality
+- Login & Signup X
+- Dropdown Menu Profile Picture
+- Set Profile Picture
+- Add Products To Cart
+- Create Support Tickets
+- Order Processing Page
