@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2024 at 09:05 AM
+-- Generation Time: Dec 07, 2024 at 03:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,9 +43,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `product_id`, `product_name`, `product_price`, `quantity`, `customer_id`, `customer_name`, `created_at`) VALUES
-(1, 2, 'Carrier Aura Inverter Floor Mounted 3T/4.0hp ', 0, 1, 3, 'Rein', '2024-12-07 13:47:15'),
-(2, 1, 'Carrier Aura Inverter Floor Mounted', 0, 1, 3, 'Rein', '2024-12-07 13:47:15'),
-(4, 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', 37100, 1, 3, 'Rein', '2024-12-07 16:05:22');
+(1, 2, 'Carrier Aura Inverter Floor Mounted 3T/4.0hp ', 126000, 3, 3, 'Rein', '2024-12-07 13:47:15'),
+(2, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 3, 'Rein', '2024-12-07 13:47:15'),
+(4, 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', 37100, 2, 3, 'Rein', '2024-12-07 16:05:22');
 
 -- --------------------------------------------------------
 

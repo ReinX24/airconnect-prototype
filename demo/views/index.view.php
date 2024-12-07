@@ -2,10 +2,6 @@
 
 <?php require 'partials/nav.php'; ?>
 
-<?php
-var_dump($_SESSION);
-?>
-
 <div class="container col-8 p-4">
     <div class="px-4 py-5 my-5 text-center">
         <div class="d-flex justify-content-center">

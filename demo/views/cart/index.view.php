@@ -63,4 +63,4 @@
     });
 </script>
 
-<?php basePath('view/partials/footer.php'); ?>
+<?php require basePath('view/partials/footer.php'); ?>

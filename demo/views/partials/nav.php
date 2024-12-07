@@ -24,15 +24,20 @@
                     " href="/products">Products</a>
                 </li>
                 <?php if ($_SESSION["user"] ?? false) : ?>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link
-                        <?= urlIs('/notes') ? "active" : "" ?>
-                    " href="/notes">Notes</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link
                         <?= urlIs('/cart') ? "active" : "" ?>
                     " href="/cart">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link
+                        <?= urlIs('/maintenance') ? "active" : "" ?>
+                    " href="/maintenance">Maintenance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link
+                        <?= urlIs('/support') ? "active" : "" ?>
+                    " href="/support">Customer Support</a>
                     </li>
                 <?php endif; ?>
             </ul>

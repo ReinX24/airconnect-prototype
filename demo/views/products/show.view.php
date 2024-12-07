@@ -6,10 +6,10 @@
 
 <div class="container">
     <?php if (isset($errors["quantity"])) : ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <span class="fs-4"><?= $errors["quantity"] ?></span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span class="fs-4"><?= $errors["quantity"] ?></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     <?php endif; ?>
     <div class="mb-3 d-flex justify-content-between">
         <div>
@@ -18,9 +18,13 @@
             <p class="lead"><strong>Stock:</strong> <?= $product["stock"] ?></p>
         </div>
         <div class="d-flex align-items-center">
-            <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#addToCartModal">
-                Add To Cart
-            </button>
+            <?php if (isset($_SESSION["user"])) : ?>
+                <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#addToCartModal">
+                    Add To Cart
+                </button>
+            <?php else : ?>
+                <a href="/login" class="btn btn-lg btn-primary">Add To Cart</a>
+            <?php endif; ?>
         </div>
     </div>
     <div class="d-flex flex-column align-items-center">

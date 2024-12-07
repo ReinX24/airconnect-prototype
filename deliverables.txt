@@ -3,10 +3,13 @@
 - Landing Page X
 - Login Page X
 - Signup Page X
-- About Page
+- About Page X
 - Products Page X
 - Product Info Page X
 - Cart Page X
+- Checkout Page
+- Maintenance Page
+- Customer Support Page
 - Redesign Login and Register Page
 
 # Features & Functionality

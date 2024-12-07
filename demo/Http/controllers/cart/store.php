@@ -14,7 +14,6 @@ $form = AddToCartForm::validate(
     ]
 );
 
-// TODO: check if item is already in user's cart, if so, just add to quantity
 (new Authenticator)->attemptAddToCart(
     $attributes["productId"],
     $attributes["productName"],

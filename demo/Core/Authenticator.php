@@ -13,21 +13,43 @@ class Authenticator
         $customerName
     ) {
         $db = App::resolve(Database::class);
-        $db->query(
-            "INSERT INTO 
+        // Check if the product is already added to the user's cart
+        $existingCartItem = $db->query(
+            "SELECT * FROM cart WHERE 
+            product_id = :product_id AND
+            customer_id = :customer_id",
+            [
+                "product_id" => $productId,
+                "customer_id" => $customerId
+            ]
+        )->find();
+
+        // If the product has already been added to cart, increment entity
+        if ($existingCartItem) {
+            $db->query(
+                "UPDATE cart SET quantity = :quantity WHERE id = :id",
+                [
+                    "quantity" => $existingCartItem["quantity"] += $quantity,
+                    "id" => $existingCartItem["id"]
+                ]
+            );
+        } else {
+            $db->query(
+                "INSERT INTO 
                 cart (product_id, product_name, product_price, quantity, customer_id, customer_name)
             VALUES
                 (:product_id, :product_name, :product_price, :quantity, :customer_id, :customer_name)
             ",
-            [
-                "product_id" => $productId,
-                "product_name" => $productName,
-                "product_price" => $productPrice,
-                "quantity" => $quantity,
-                "customer_id" => $customerId,
-                "customer_name" => $customerName
-            ]
-        );
+                [
+                    "product_id" => $productId,
+                    "product_name" => $productName,
+                    "product_price" => $productPrice,
+                    "quantity" => $quantity,
+                    "customer_id" => $customerId,
+                    "customer_name" => $customerName
+                ]
+            );
+        }
     }
 
     public function attemptLogin($email, $password)
