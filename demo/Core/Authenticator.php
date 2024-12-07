@@ -4,6 +4,32 @@ namespace Core;
 
 class Authenticator
 {
+    public function attemptAddToCart(
+        $productId,
+        $productName,
+        $productPrice,
+        $quantity,
+        $customerId,
+        $customerName
+    ) {
+        $db = App::resolve(Database::class);
+        $db->query(
+            "INSERT INTO 
+                cart (product_id, product_name, product_price, quantity, customer_id, customer_name)
+            VALUES
+                (:product_id, :product_name, :product_price, :quantity, :customer_id, :customer_name)
+            ",
+            [
+                "product_id" => $productId,
+                "product_name" => $productName,
+                "product_price" => $productPrice,
+                "quantity" => $quantity,
+                "customer_id" => $customerId,
+                "customer_name" => $customerName
+            ]
+        );
+    }
+
     public function attemptLogin($email, $password)
     {
         // Match the credentials

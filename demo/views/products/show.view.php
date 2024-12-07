@@ -25,10 +25,6 @@
     </div>
     <div class="d-flex flex-column align-items-center">
         <img src="<?= $product["photo"] ?>" alt="<?= $product["name"] ?>-photo" class="border rounded-4 img-fluid">
-        <!-- <form action="/cart/add" method="POST">
-            <input type="hidden" name="id" value="<?= $product["id"] ?>">
-            <button type="submit" class="btn btn-lg btn-primary mt-2">Add To Cart</button>
-        </form> -->
     </div>
     <div class="mt-3">
         <p class="lead">&emsp;<?= $product["description"] ?></p>
@@ -44,10 +40,12 @@
                 </div>
                 <div class="modal-body py-0">
                     <form action="/cart/add" method="POST" id="addToCartForm">
-                        <input type="hidden" name="id" value="<?= $product["id"] ?>">
+                        <input type="hidden" name="productId" value="<?= $product["id"] ?>">
+                        <input type="hidden" name="productPrice" value="<?= $product["price"] ?>">
+                        <input type="hidden" name="productName" value="<?= $product["name"] ?>">
                         <div>
                             <label for="quantity" class="form-label fs-5">Quantity</label>
-                            <input type="number" name="quantity" class="form-control form-control-lg" min="1" value="1" max="<?= $product["stock"] ?>">
+                            <input type="number" name="quantity" class="form-control form-control-lg" min="1" value="1" max="<?= $product["stock"] ?>" onkeydown="return false">
                         </div>
                     </form>
                 </div>

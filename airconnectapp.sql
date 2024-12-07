@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2024 at 08:02 PM
+-- Generation Time: Dec 07, 2024 at 09:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `airconnectapp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `product_price` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `customer_name` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `product_id`, `product_name`, `product_price`, `quantity`, `customer_id`, `customer_name`, `created_at`) VALUES
+(1, 2, 'Carrier Aura Inverter Floor Mounted 3T/4.0hp ', 0, 1, 3, 'Rein', '2024-12-07 13:47:15'),
+(2, 1, 'Carrier Aura Inverter Floor Mounted', 0, 1, 3, 'Rein', '2024-12-07 13:47:15'),
+(4, 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', 37100, 1, 3, 'Rein', '2024-12-07 16:05:22');
 
 -- --------------------------------------------------------
 
@@ -105,6 +131,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `customer_id` (`customer_id`);
+
+--
 -- Indexes for table `notes`
 --
 ALTER TABLE `notes`
@@ -134,6 +167,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
@@ -160,6 +199,13 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `customer_id` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_id` FOREIGN KEY (`customer_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `notes`

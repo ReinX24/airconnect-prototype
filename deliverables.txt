@@ -6,13 +6,13 @@
 - About Page
 - Products Page X
 - Product Info Page X
-- Cart Page
+- Cart Page X
 - Redesign Login and Register Page
 
 # Features & Functionality
 - Login & Signup X
 - Dropdown Menu Profile Picture
 - Set Profile Picture
-- Add Products To Cart
+- Add Products To Cart X
 - Create Support Tickets
-- Order Processing Page
+- Checkout Order Processing Page

@@ -6,7 +6,9 @@ $router->get('/about', 'about.php');
 $router->get('/products', 'products/index.php');
 $router->get('/product', 'products/show.php');
 
+$router->get('/cart', 'cart/index.php'); // TODO: create cart page
 $router->post('/cart/add', 'cart/store.php');
+$router->get('/checkout', 'cart/checkout.php');
 
 //* START OF LEFTOVERS FROM PAST APPLICATION
 $router->get('/contact', 'contact.php');
