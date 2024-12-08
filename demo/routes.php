@@ -18,17 +18,17 @@ $router->get("/support", 'support/index.php')->only("auth");
 $router->post("/support", 'support/store.php')->only("auth");
 
 //* START OF LEFTOVERS FROM PAST APPLICATION
-$router->get('/contact', 'contact.php');
+// $router->get('/contact', 'contact.php');
 
-$router->get('/notes', 'notes/index.php')->only('auth');
-$router->get('/note', 'notes/show.php');
-$router->get('/note/create', 'notes/create.php');
-$router->get('/note/edit', 'notes/edit.php');
+// $router->get('/notes', 'notes/index.php')->only('auth');
+// $router->get('/note', 'notes/show.php');
+// $router->get('/note/create', 'notes/create.php');
+// $router->get('/note/edit', 'notes/edit.php');
 
-$router->post('/note', 'notes/store.php');
+// $router->post('/note', 'notes/store.php');
 
-$router->patch('/note', 'notes/update.php');
-$router->delete('/note', 'notes/destroy.php');
+// $router->patch('/note', 'notes/update.php');
+// $router->delete('/note', 'notes/destroy.php');
 //* END OF LEFTOVERS FROM PAST APPLICATION
 
 $router->get('/register', 'registration/create.php')->only('guest'); // goes to register page

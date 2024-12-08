@@ -5,7 +5,7 @@ namespace Http\Forms;
 use Core\Validator;
 use Core\ValidationException;
 
-class CustomerSupportForm
+class MaintenanceTicketForm
 {
     protected $errors = [];
 
@@ -23,7 +23,7 @@ class CustomerSupportForm
             $this->errors['message'] = 'Message should be more than 7 characters.';
         }
 
-        if (!Validator::string($attributes["contact_info"])) {
+        if (!Validator::string($attributes["contactInfo"])) {
             $this->errors['contact_info'] = 'Contact Information cannot be empty.';
         }
 

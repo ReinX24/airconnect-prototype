@@ -17,5 +17,5 @@
 - Dropdown Menu Profile Picture
 - Set Profile Picture
 - Add Products To Cart X
-- Create Support Tickets
-- Checkout Order Processing Page
+- Create Support Tickets X
+- Checkout Order Processing Page X

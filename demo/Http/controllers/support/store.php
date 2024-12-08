@@ -14,7 +14,7 @@ $form = CustomerSupportForm::validate(
     ] 
 );
 
-(new Authenticator)->attemptSubmitTicket(
+(new Authenticator)->attemptSubmitSupportTicket(
     $attributes["user_id"],
     $attributes["name"],
     $attributes["email"],

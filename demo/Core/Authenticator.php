@@ -52,7 +52,7 @@ class Authenticator
         }
     }
 
-    public function attemptSubmitTicket(
+    public function attemptSubmitSupportTicket(
         $userId,
         $name,
         $email,
@@ -73,6 +73,35 @@ class Authenticator
                 "message" => $message,
                 "contact_info" => $contactInfo,
                 "location" => $location
+            ]
+        );
+    }
+
+    public function attemptSubmitMaintenanceTicket(
+        $userId,
+        $name,
+        $email,
+        $productId,
+        $productName,
+        $purchaseDate,
+        $category,
+        $message
+    ) {
+        $db = App::resolve(Database::class);
+        $db->query(
+            "INSERT INTO 
+                maintenance_tickets (user_id, name, email, product_id, product_name, purchase_date, category, message)
+            VALUES
+                (:user_id, :name, :email, :product_id, :product_name, :purchase_date, :category, :message)",
+            [
+                'user_id' => $userId,
+                'name' => $name,
+                'email' => $email,
+                'product_id' => $productId,
+                'product_name' => $productName,
+                'purchase_date' => $purchaseDate,
+                'category' => $category,
+                'message' => $message
             ]
         );
     }

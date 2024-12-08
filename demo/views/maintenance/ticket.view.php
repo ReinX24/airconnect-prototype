@@ -20,6 +20,12 @@
     </div>
 
     <form action="/maintenance/ticket" method="POST">
+        <p class="lead">Support Ticket for <?= $_GET["product_name"] ?></p>
+        <p class="lead">Purchased At: <?= $_GET["purchase_date"] ?></p>
+        <input type="hidden" name="product_id" value="<?= $_GET["product_id"] ?>">
+        <input type="hidden" name="product_name" value="<?= $_GET["product_name"] ?>">
+        <input type="hidden" name="purchase_date" value="<?= $_GET["purchase_date"] ?>">
+
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" name="name" class="form-control" value="<?= $_SESSION["user"]["name"]; ?>" readonly>
@@ -39,8 +45,8 @@
         <?php endif ?>
 
         <div class="mb-3">
-            <label for="category-select">Category</label>
-            <select name="category-select" class="form-select">
+            <label for="category_select">Category</label>
+            <select name="category_select" class="form-select">
                 <option value="cleaning">Cleaning</option>
                 <option value="parts-replacement">Parts Replacement</option>
                 <option value="other">Other</option>

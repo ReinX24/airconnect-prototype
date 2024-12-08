@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2024 at 10:30 AM
+-- Generation Time: Dec 08, 2024 at 05:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,34 +50,27 @@ INSERT INTO `cart` (`id`, `product_id`, `product_name`, `product_price`, `quanti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notes`
+-- Table structure for table `maintenance_tickets`
 --
 
-CREATE TABLE `notes` (
+CREATE TABLE `maintenance_tickets` (
   `id` int(11) NOT NULL,
-  `body` text NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `posts`
---
-
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `purchase_date` datetime NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `message` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `posts`
+-- Dumping data for table `maintenance_tickets`
 --
 
-INSERT INTO `posts` (`id`, `title`, `user_id`) VALUES
-(1, 'This is the first post!', 0),
-(2, 'This is the second post!', 0);
+INSERT INTO `maintenance_tickets` (`id`, `user_id`, `name`, `email`, `product_id`, `product_name`, `purchase_date`, `category`, `message`) VALUES
+(1, 3, 'Rein', 'rein@gmail.com', 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', '2024-12-08 14:53:03', 'cleaning', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat eos laudantium repellat. Enim, commodi. Quaerat sunt consectetur ratione incidunt, numquam minima animi laboriosam totam libero et, amet, autem quisquam veritatis aliquam vitae accusantium enim debitis iure commodi quas saepe corrupti officia. Suscipit doloremque expedita, ad distinctio repellendus illo obcaecati excepturi!');
 
 -- --------------------------------------------------------
 
@@ -132,10 +125,10 @@ INSERT INTO `purchases` (`id`, `product_id`, `product_name`, `product_price`, `q
 -- --------------------------------------------------------
 
 --
--- Table structure for table `support_ticket`
+-- Table structure for table `support_tickets`
 --
 
-CREATE TABLE `support_ticket` (
+CREATE TABLE `support_tickets` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -144,6 +137,13 @@ CREATE TABLE `support_ticket` (
   `contact_info` varchar(255) NOT NULL,
   `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `support_tickets`
+--
+
+INSERT INTO `support_tickets` (`id`, `user_id`, `name`, `email`, `message`, `contact_info`, `location`) VALUES
+(1, 3, 'Rein', 'rein@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis exercitationem nostrum incidunt odio mollitia optio obcaecati quo beatae totam voluptatibus, tempore officia alias iusto iure. Totam voluptatibus quae molestiae minus aliquid perspiciatis, voluptate corrupti esse odit corporis quibusdam velit animi ut, voluptatum quas autem harum maxime dicta magni repellat ea.', '0912 3345 678', 'Easy Street');
 
 -- --------------------------------------------------------
 
@@ -179,16 +179,9 @@ ALTER TABLE `cart`
   ADD KEY `customer_id` (`customer_id`);
 
 --
--- Indexes for table `notes`
+-- Indexes for table `maintenance_tickets`
 --
-ALTER TABLE `notes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `posts`
---
-ALTER TABLE `posts`
+ALTER TABLE `maintenance_tickets`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -206,9 +199,9 @@ ALTER TABLE `purchases`
   ADD KEY `purchases_customer_id` (`customer_id`);
 
 --
--- Indexes for table `support_ticket`
+-- Indexes for table `support_tickets`
 --
-ALTER TABLE `support_ticket`
+ALTER TABLE `support_tickets`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -228,16 +221,10 @@ ALTER TABLE `cart`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `notes`
+-- AUTO_INCREMENT for table `maintenance_tickets`
 --
-ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT for table `posts`
---
-ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `maintenance_tickets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -252,10 +239,10 @@ ALTER TABLE `purchases`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `support_ticket`
+-- AUTO_INCREMENT for table `support_tickets`
 --
-ALTER TABLE `support_ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `support_tickets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -273,12 +260,6 @@ ALTER TABLE `users`
 ALTER TABLE `cart`
   ADD CONSTRAINT `customer_id` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `product_id` FOREIGN KEY (`customer_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `notes`
---
-ALTER TABLE `notes`
-  ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `purchases`
