@@ -12,8 +12,14 @@
     </div>
     <div class="mb-4 d-flex justify-content-center gap-2">
         <!-- TODO: implement these functionalities -->
-        <a href="/cart/clear" class="btn btn-danger">Clear Cart</a>
-        <a href="/cart/clear" class="btn btn-outline-danger">Remove Selected Items</a>
+        <form action="/cart/clear" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger">Clear Cart</button>
+        </form>
+        <form action="" method="GET" id="removeItem">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" form="removeItem" class="btn btn-outline-danger">Remove Selected Items</button>
+        </form>
     </div>
     <form action="/checkout" method="GET" id="checkoutForm">
         <?php foreach ($cart as $item) : ?>
