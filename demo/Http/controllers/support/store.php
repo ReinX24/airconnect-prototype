@@ -5,6 +5,7 @@ use Http\Forms\CustomerSupportForm;
 
 $form = CustomerSupportForm::validate(
     $attributes = [
+        "user_id" => $_SESSION["user"]["id"],
         "name" => $_SESSION["user"]["name"],
         "email" => $_SESSION["user"]["email"],
         "message" => $_POST["message"],
@@ -12,3 +13,15 @@ $form = CustomerSupportForm::validate(
         "location" => $_POST["location"]
     ] 
 );
+
+(new Authenticator)->attemptSubmitTicket(
+    $attributes["user_id"],
+    $attributes["name"],
+    $attributes["email"],
+    $attributes["message"],
+    $attributes["contact_info"],
+    $attributes["location"],
+);
+
+redirect("/support");
+

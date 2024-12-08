@@ -26,10 +26,6 @@ class CustomerSupportForm
         if (!Validator::string($attributes["location"])) {
             $this->errors['location'] = 'Location cannot be empty.';
         }
-
-        // if (!Validator::email($attributes["email"])) {
-        //     $this->errors['email'] = 'Please provide a valid email address.';
-        // }
     }
 
     public static function validate($attributes)

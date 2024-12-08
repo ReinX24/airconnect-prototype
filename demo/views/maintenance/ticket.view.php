@@ -6,8 +6,7 @@
 
 <div class="container">
     <p class="text-center my-4">
-        AirConnect, we prioritize your comfort and satisfaction. Our dedicated customer service team is here to assist you with all your air conditioning needs. Whether you're seeking technical support, product information, or guidance on choosing the right system, we’ve got you covered.
-        Need assistance? The AirConnect Customer Support page is here for you! Connect with our support team to resolve any questions or issues. We're dedicated to providing a smooth and reliable experience for all your connectivity needs.
+        Welcome to the AirConnect Maintenance Support page. Here, you'll find real-time updates, troubleshooting guides, and resources to ensure uninterrupted connectivity. Whether you're addressing system maintenance or resolving technical issues, we’re here to help keep your AirConnect experience seamless and efficient.
     </p>
     <div class="card mb-3">
         <div class="card-body">
@@ -20,7 +19,7 @@
         </div>
     </div>
 
-    <form action="/support" method="POST">
+    <form action="/maintenance/ticket" method="POST">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" name="name" class="form-control" value="<?= $_SESSION["user"]["name"]; ?>" readonly>
@@ -38,6 +37,15 @@
         <?php if (isset($errors['email'])) : ?>
             <p class="text-danger"><?= $errors['email']; ?></p>
         <?php endif ?>
+
+        <div class="mb-3">
+            <label for="category-select">Category</label>
+            <select name="category-select" class="form-select">
+                <option value="cleaning">Cleaning</option>
+                <option value="parts-replacement">Parts Replacement</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
 
         <div class="mb-3">
             <label for="message" class="form-label">Message</label>

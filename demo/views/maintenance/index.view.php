@@ -37,7 +37,12 @@
                             </div>
                             <div class="mt-2 d-flex gap-2">
                                 <a href="/product?id=<?= $item["product_id"] ?>" class="btn btn-primary">Product Info</a>
-                                <a href="/maintenance" class="btn btn-success">Contact Maintenance</a>
+                                <form action="/maintenance/ticket" method="GET">
+                                    <input type="hidden" name="product_id" value="<?= $item["product_id"] ?>">
+                                    <input type="hidden" name="product_name" value="<?= $item["product_name"] ?>">
+                                    <input type="hidden" name="purchase_date" value="<?= $item["created_at"] ?>">
+                                    <button href="/maintenance/ticket" class="btn btn-success">Contact Maintenance</button>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -11,6 +11,8 @@ $router->post('/cart/add', 'cart/store.php')->only("auth");
 $router->get('/checkout', 'cart/checkout.php')->only("auth");
 
 $router->get("/maintenance", 'maintenance/index.php')->only("auth");
+$router->get("/maintenance/ticket", "maintenance/ticket.php")->only("auth");
+$router->post("/maintenance/ticket", "maintenance/store.php")->only("auth");
 
 $router->get("/support", 'support/index.php')->only("auth");
 $router->post("/support", 'support/store.php')->only("auth");

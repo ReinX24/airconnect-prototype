@@ -52,6 +52,31 @@ class Authenticator
         }
     }
 
+    public function attemptSubmitTicket(
+        $userId,
+        $name,
+        $email,
+        $message,
+        $contactInfo,
+        $location
+    ) {
+        $db = App::resolve(Database::class);
+        $db->query(
+            "INSERT INTO 
+                support_tickets (user_id, name, email, message, contact_info, location)
+            VALUES
+                (:user_id, :name, :email, :message, :contact_info, :location)",
+            [
+                "user_id" => $userId,
+                "name" => $name,
+                "email" => $email,
+                "message" => $message,
+                "contact_info" => $contactInfo,
+                "location" => $location
+            ]
+        );
+    }
+
     public function attemptLogin($email, $password)
     {
         // Match the credentials
