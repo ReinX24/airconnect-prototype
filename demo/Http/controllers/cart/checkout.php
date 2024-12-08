@@ -16,7 +16,10 @@ if (!$selectedIds) {
 }
 
 foreach ($selectedIds as $id) {
-    $cartItem = $db->query("SELECT * FROM cart WHERE id = :id", ["id" => $id])->find();
+    $cartItem = $db->query(
+        "SELECT * FROM cart WHERE id = :id ORDER BY created_at DESC",
+        ["id" => $id]
+    )->find();
 
     $product = $db->query(
         "SELECT * FROM products WHERE id = :id",
@@ -26,15 +29,15 @@ foreach ($selectedIds as $id) {
     )->find();
 
     $cartItem["photo"] = $product["photo"];
+    $cartItem["totalItemCost"] = $cartItem["product_price"] * $cartItem["quantity"];
 
     $totalCost += $cartItem["product_price"] * $cartItem["quantity"];
 
     array_push($selectedItems, $cartItem);
 }
 
-dd($selectedItems);
+// dd($selectedItems);
 
-// TODO: view photos
 view("cart/checkout.view.php", [
     "heading" => "Checkout",
     "selectedItems" => $selectedItems,

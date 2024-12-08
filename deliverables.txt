@@ -7,9 +7,9 @@
 - Products Page X
 - Product Info Page X
 - Cart Page X
-- Checkout Page
-- Maintenance Page
-- Customer Support Page
+- Checkout Page X
+- Maintenance Page X
+- Customer Support Page X
 - Redesign Login and Register Page
 
 # Features & Functionality

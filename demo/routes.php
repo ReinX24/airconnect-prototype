@@ -6,9 +6,14 @@ $router->get('/about', 'about.php');
 $router->get('/products', 'products/index.php');
 $router->get('/product', 'products/show.php');
 
-$router->get('/cart', 'cart/index.php'); // TODO: create cart page
-$router->post('/cart/add', 'cart/store.php');
-$router->get('/checkout', 'cart/checkout.php');
+$router->get('/cart', 'cart/index.php')->only("auth");
+$router->post('/cart/add', 'cart/store.php')->only("auth");
+$router->get('/checkout', 'cart/checkout.php')->only("auth");
+
+$router->get("/maintenance", 'maintenance/index.php')->only("auth");
+
+$router->get("/support", 'support/index.php')->only("auth");
+$router->post("/support", 'support/store.php')->only("auth");
 
 //* START OF LEFTOVERS FROM PAST APPLICATION
 $router->get('/contact', 'contact.php');
