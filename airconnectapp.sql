@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2024 at 07:37 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Dec 09, 2024 at 04:33 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,11 +43,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `product_id`, `product_name`, `product_price`, `quantity`, `customer_id`, `customer_name`, `created_at`) VALUES
-(1, 2, 'Carrier Aura Inverter Floor Mounted 3T/4.0hp ', 126000, 3, 3, 'Rein', '2024-12-07 13:47:15'),
-(2, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 3, 'Rein', '2024-12-07 13:47:15'),
-(4, 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', 37100, 2, 3, 'Rein', '2024-12-07 16:05:22'),
-(9, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 4, 'Jake Doe', '2024-12-09 02:31:27'),
-(10, 2, 'Carrier Aura Inverter Floor Mounted 3T/4.0hp ', 126000, 1, 4, 'Jake Doe', '2024-12-09 02:31:28');
+(15, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 3, 'Rein', '2024-12-09 11:16:53'),
+(22, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 7, 'Benjamin', '2024-12-09 11:33:07');
 
 -- --------------------------------------------------------
 
@@ -73,7 +70,9 @@ CREATE TABLE `maintenance_tickets` (
 
 INSERT INTO `maintenance_tickets` (`id`, `user_id`, `name`, `email`, `product_id`, `product_name`, `purchase_date`, `category`, `message`) VALUES
 (1, 3, 'Rein', 'rein@gmail.com', 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', '2024-12-08 14:53:03', 'cleaning', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat eos laudantium repellat. Enim, commodi. Quaerat sunt consectetur ratione incidunt, numquam minima animi laboriosam totam libero et, amet, autem quisquam veritatis aliquam vitae accusantium enim debitis iure commodi quas saepe corrupti officia. Suscipit doloremque expedita, ad distinctio repellendus illo obcaecati excepturi!'),
-(2, 3, 'Rein', 'rein@gmail.com', 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', '2024-12-08 14:53:03', 'cleaning', 'Test Message');
+(2, 3, 'Rein', 'rein@gmail.com', 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', '2024-12-08 14:53:03', 'cleaning', 'Test Message'),
+(3, 3, 'Rein', 'rein@gmail.com', 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', '2024-12-08 14:53:03', 'cleaning', 'Test Message on laptop'),
+(4, 3, 'Rein', 'rein@gmail.com', 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', '2024-12-08 14:53:03', 'cleaning', 'Lorem Ipusum 50');
 
 -- --------------------------------------------------------
 
@@ -147,7 +146,8 @@ CREATE TABLE `support_tickets` (
 
 INSERT INTO `support_tickets` (`id`, `user_id`, `name`, `email`, `message`, `contact_info`, `location`) VALUES
 (1, 3, 'Rein', 'rein@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis exercitationem nostrum incidunt odio mollitia optio obcaecati quo beatae totam voluptatibus, tempore officia alias iusto iure. Totam voluptatibus quae molestiae minus aliquid perspiciatis, voluptate corrupti esse odit corporis quibusdam velit animi ut, voluptatum quas autem harum maxime dicta magni repellat ea.', '0912 3345 678', 'Easy Street'),
-(2, 3, 'Rein', 'rein@gmail.com', 'Test Message', '0912 3345 678', 'Sesame Street');
+(2, 3, 'Rein', 'rein@gmail.com', 'Test Message', '0912 3345 678', 'Sesame Street'),
+(3, 3, 'Rein', 'rein@gmail.com', 'Test Message', '0912 3345 678', 'Sesame Street');
 
 -- --------------------------------------------------------
 
@@ -170,7 +170,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 (1, 'John Doe', 'john@gmail.com', '$2y$10$dKeE3UneIQ9MGm6GxhLtkOWJz0ZlFxspvwVKZ3G.QSHbgxVp5viue'),
 (2, 'Jane Doe', 'jane@gmail.com', '$2y$10$4S3QdrbtSipb72qYrIv/7ex1PI1lrc3FPYmCes9a6sbX4T7NiCIGa'),
 (3, 'Rein', 'rein@gmail.com', '$2y$10$SxzAj9QAmQX0mWF/TjdS8eqk8k.UroMiLCvRmHzzgRlcK/.Dy2LAO'),
-(4, 'Jake Doe', 'jake@example.com', '$2y$10$TlBbxDjYgEQ7eWPDvo0TpOEsaqWBUSY97yWGmT6qyeuJKQs82ceU2');
+(6, 'Jake Doe', 'jake@example.com', '$2y$10$n094hZRJYG69QxtIMJ3hO.U5xQbJb6R5EdTbmYkfbd2EpNJEAqqN6'),
+(7, 'Benjamin', 'benjie@example.com', '$2y$10$8nNMYoAjXBmFGZhZhLZBhOZb4R9Rr.QJGxtNcD/CsYsv/a/JyJNjm');
 
 --
 -- Indexes for dumped tables
@@ -181,7 +182,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `customer_id` (`customer_id`);
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `cart_product_id` (`product_id`);
 
 --
 -- Indexes for table `maintenance_tickets`
@@ -223,13 +225,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `maintenance_tickets`
 --
 ALTER TABLE `maintenance_tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -247,13 +249,13 @@ ALTER TABLE `purchases`
 -- AUTO_INCREMENT for table `support_tickets`
 --
 ALTER TABLE `support_tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -263,8 +265,8 @@ ALTER TABLE `users`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `customer_id` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_id` FOREIGN KEY (`customer_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cart_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cart_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `purchases`

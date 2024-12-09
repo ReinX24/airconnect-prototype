@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="modal-body py-0">
                                     <form action="/cart/add" method="POST" id="addToCartForm<?= $product["id"] ?>">
-                                        <p><?= $product["id"] ?></p>
+                                        <!-- <p><?= $product["id"] ?></p> -->
                                         <input type="hidden" name="productId" value="<?= $product["id"] ?>">
                                         <input type="hidden" name="productPrice" value="<?= $product["price"] ?>">
                                         <input type="hidden" name="productName" value="<?= $product["name"] ?>">
