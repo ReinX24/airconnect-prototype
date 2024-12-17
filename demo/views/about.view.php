@@ -24,15 +24,11 @@
             <h4>Expert Guidance</h4>
             <p>Not sure what you need? Our team of HVAC experts is here to guide you through the selection process, providing personalized recommendations based on your requirements.</p>
         </li>
-        <li>
-            <h4>End-to-End Service</h4>
-            <p>From product selection to delivery and installation, we’ve got you covered. We also offer maintenance packages to keep your system running smoothly year-round.We offer a curated selection of air conditioners from leading brands, featuring energy-efficient models, smart home integration, and solutions tailored to every need and budget.</p>
-        </li>
     </ul>
 
     <p>With AirConnect, you're not just buying an air conditioner—you're investing in quality, reliability, and a better way to live. Let us help you create the perfect indoor climate for every season.</p>
     <p>Explore our platform today and discover why AirConnect is the ultimate destination for all your air conditioning needs!</p>
-    <p><strong>Your comfort, our commitment.</strong></p>
+    <h2><strong>Your comfort, our commitment.</strong></h2>
 </div>
 
 <?php require 'partials/footer.php'; ?>

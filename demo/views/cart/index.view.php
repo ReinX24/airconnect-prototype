@@ -11,14 +11,9 @@
         <button type="button" id="deselectAllBtn" class="btn btn-outline-secondary">Deselect All</button>
     </div>
     <div class="mb-4 d-flex justify-content-center gap-2">
-        <!-- TODO: implement these functionalities -->
         <form action="/cart/clear" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit" class="btn btn-danger">Clear Cart</button>
-        </form>
-        <form action="" method="GET" id="removeItem">
-            <input type="hidden" name="_method" value="DELETE">
-            <button type="submit" form="removeItem" class="btn btn-outline-danger">Remove Selected Items</button>
         </form>
     </div>
     <form action="/checkout" method="GET" id="checkoutForm">
@@ -33,15 +28,14 @@
                         <div class="card-body">
                             <div>
                                 <h5 class="card-title"><?= $item["name"] ?></h5>
-                                <div>
+                                <div class="mb-4">
+                                    <p class="card-text lead">Price: ₱<?= formatPrice($item["price"]) ?></p>
                                     <p class="card-text lead">Quantity: <?= $item["quantity"] ?></p>
+                                    <p class="card-text lead"><strong>Total: ₱<?= formatPrice($item["price"] * $item["quantity"]) ?></strong></p>
                                 </div>
                                 <div class="mt-2 d-flex gap-2">
                                     <a href="/product?id=<?= $item["id"] ?>" class="btn btn-primary">Product Info</a>
-                                    <!-- <form action="/cart/delete-item" method="POST" id="deleteItem">
-                                        <input type="hidden" name="cart_id" value="<?= $item["cart_id"] ?>">
-                                        <button type="submit" class="btn btn-danger" form="deleteItem">Remove</button>
-                                    </form> -->
+                                    <button type="submit" class="btn btn-danger" form="deleteItem">Remove</button>
                                 </div>
                                 <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
                             </div>
@@ -52,6 +46,12 @@
         <?php endforeach ?>
     </form>
 </div>
+
+<form action="/cart/remove" method="POST" id="deleteItem">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="cart_id" value="<?= $item["cart_id"] ?>">
+    <!-- <button type="submit" class="btn btn-danger" form="deleteItem">Remove</button> -->
+</form>
 
 <script>
     document.querySelector("#selectAllBtn").addEventListener("click", function() {

@@ -13,8 +13,7 @@
     <?php endif; ?>
     <div class="mb-3 d-flex justify-content-between">
         <div>
-            <!-- TODO: format price -->
-            <p class="lead"><strong>Price:</strong> <?= $product["price"] ?></p>
+            <p class="lead"><strong>Price:</strong> ₱<?= formatPrice($product["price"]) ?></p>
             <p class="lead"><strong>Stock:</strong> <?= $product["stock"] ?></p>
         </div>
         <div class="d-flex align-items-center">

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2024 at 04:33 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 17, 2024 at 05:35 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,8 +43,11 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `product_id`, `product_name`, `product_price`, `quantity`, `customer_id`, `customer_name`, `created_at`) VALUES
-(15, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 3, 'Rein', '2024-12-09 11:16:53'),
-(22, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 7, 'Benjamin', '2024-12-09 11:33:07');
+(23, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 3, 'Rein', '2024-12-17 22:35:19'),
+(24, 2, 'Carrier Aura Inverter Floor Mounted 3T/4.0hp ', 126000, 1, 3, 'Rein', '2024-12-17 22:35:22'),
+(27, 2, 'Carrier Aura Inverter Floor Mounted 3T/4.0hp ', 126000, 1, 8, 'John', '2024-12-17 23:12:29'),
+(33, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 2, 8, 'John', '2024-12-18 00:29:13'),
+(34, 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', 37100, 1, 8, 'John', '2024-12-18 00:35:04');
 
 -- --------------------------------------------------------
 
@@ -94,7 +97,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `stock`, `photo`, `description`) VALUES
-(1, 'Carrier Aura Inverter Floor Mounted', 180000, 10, '/images/products/Floor-Mounted-1.jpg', 'With Carrier XFV Premium Floor Standing air conditioning, enjoy the highest level of indoor air quality. It has IAQ characteristics that eliminate bacteria and viruses for a healthy indoor environment. Its strong cooling has a 20-meter range and a 5-star energy rating.\r\n\r\n \r\n\r\nIt contains hepa filter that resist 95% of the dust. It is equipped with auxilliary H11 filter that absorbs harmful gases. It also features a UVC bulb that kills bacteria and virsues. Its centrifugal fan brings a strong supply of wind creating a 20 meter range of airflow. It also has an anti corrosive golden coating that can with stand salty air, rain and other corrosive elements preventing bacteria from breeding and improving heat transfer efficiency.\r\n'),
+(1, 'Carrier Aura Inverter Floor Mounted', 180000, 9, '/images/products/Floor-Mounted-1.jpg', 'With Carrier XFV Premium Floor Standing air conditioning, enjoy the highest level of indoor air quality. It has IAQ characteristics that eliminate bacteria and viruses for a healthy indoor environment. Its strong cooling has a 20-meter range and a 5-star energy rating.\r\n\r\n \r\n\r\nIt contains hepa filter that resist 95% of the dust. It is equipped with auxilliary H11 filter that absorbs harmful gases. It also features a UVC bulb that kills bacteria and virsues. Its centrifugal fan brings a strong supply of wind creating a 20 meter range of airflow. It also has an anti corrosive golden coating that can with stand salty air, rain and other corrosive elements preventing bacteria from breeding and improving heat transfer efficiency.\r\n'),
 (2, 'Carrier Aura Inverter Floor Mounted 3T/4.0hp ', 126000, 11, '/images/products/Floor-Mounted-2.jpg', 'With Carrier XFV Premium Floor Standing air conditioning, enjoy the highest level of indoor air quality. It has IAQ characteristics that eliminate bacteria and viruses for a healthy indoor environment. Its strong cooling has a 20-meter range and a 5-star energy rating.'),
 (3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', 37100, 12, '/images/products/Window-Type-1.jpg', 'Carrier Aura complements the modern home with its sleek and smart aesthetic, powered by an energy-efficient machine. Built with 8-in-1 Air Filter Technology, it negates airborne free radicals. Breathe easy without volatile organic compounds, bacteria, viruses, molds, gas, smoke, and other irritant '),
 (4, 'Carrier Aura Inverter Window Type, Remote 1.5hp ', 40000, 10, '/images/products/Window-Type-2.jpg', 'Carrier Aura complements the modern home with its sleek and smart aesthetic, powered by an energy-efficient machine. Built with 8-in-1 Air Filter Technology, it negates airborne free radicals. Breathe easy without volatile organic compounds, bacteria, viruses, molds, gas, smoke, and other irritant ');
@@ -122,7 +125,9 @@ CREATE TABLE `purchases` (
 
 INSERT INTO `purchases` (`id`, `product_id`, `product_name`, `product_price`, `quantity`, `customer_id`, `customer_name`, `created_at`) VALUES
 (1, 3, 'Carrier Aura Inverter Window Type, Remote 1.0hp ', 37100, 2, 3, 'Rein', '2024-12-08 14:53:03'),
-(2, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 2, 3, 'Rein', '2024-01-01 15:13:52');
+(2, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 2, 3, 'Rein', '2024-01-01 15:13:52'),
+(3, 4, 'Carrier Aura Inverter Window Type, Remote 1.5hp ', 40000, 2, 8, 'John', '2024-12-18 00:15:20'),
+(8, 1, 'Carrier Aura Inverter Floor Mounted', 180000, 1, 8, 'John', '2024-12-18 00:27:58');
 
 -- --------------------------------------------------------
 
@@ -167,11 +172,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(1, 'John Doe', 'john@gmail.com', '$2y$10$dKeE3UneIQ9MGm6GxhLtkOWJz0ZlFxspvwVKZ3G.QSHbgxVp5viue'),
-(2, 'Jane Doe', 'jane@gmail.com', '$2y$10$4S3QdrbtSipb72qYrIv/7ex1PI1lrc3FPYmCes9a6sbX4T7NiCIGa'),
 (3, 'Rein', 'rein@gmail.com', '$2y$10$SxzAj9QAmQX0mWF/TjdS8eqk8k.UroMiLCvRmHzzgRlcK/.Dy2LAO'),
-(6, 'Jake Doe', 'jake@example.com', '$2y$10$n094hZRJYG69QxtIMJ3hO.U5xQbJb6R5EdTbmYkfbd2EpNJEAqqN6'),
-(7, 'Benjamin', 'benjie@example.com', '$2y$10$8nNMYoAjXBmFGZhZhLZBhOZb4R9Rr.QJGxtNcD/CsYsv/a/JyJNjm');
+(8, 'John', 'john@example.com', '$2y$10$UjtF14msIK3aDASZh7E7HuRN3UOOgQrKO0EXhJQ/aaPpQhj5phdQa');
 
 --
 -- Indexes for dumped tables
@@ -225,7 +227,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `maintenance_tickets`
@@ -243,7 +245,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `support_tickets`
@@ -255,7 +257,7 @@ ALTER TABLE `support_tickets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

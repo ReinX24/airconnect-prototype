@@ -58,3 +58,8 @@ function old($key, $default = "")
 {
     return Core\Session::get("old")[$key] ?? $default;
 }
+
+function formatPrice($price)
+{
+    return number_format($price, 2, ".", ",");
+}

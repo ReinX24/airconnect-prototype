@@ -13,6 +13,7 @@ $router->delete('/cart/clear', 'cart/clear.php')->only('auth');
 $router->delete('/cart/remove', 'cart/remove.php')->only('auth');
 
 $router->get('/checkout', 'cart/checkout.php')->only("auth");
+$router->post('/checkout-confirm', 'cart/checkout-confirm.php')->only('auth');
 
 $router->get("/maintenance", 'maintenance/index.php')->only("auth");
 $router->get("/maintenance/ticket", "maintenance/ticket.php")->only("auth");

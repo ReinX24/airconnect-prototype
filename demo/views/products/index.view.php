@@ -14,16 +14,15 @@
                             <img src="<?= $product["photo"] ?>" alt="<?= $product["name"] ?>-photo" class="border-bottom m-2">
                             <div class="card-body">
                                 <h4><?= $product["name"] ?></h4>
-                                <!-- TODO: format price -->
                                 <p class="card-text lead">
-                                    <strong>Price:</strong> <?= $product["price"] ?>
-                                    <br>
+                                    <strong>Price:</strong> ₱<?= formatPrice($product["price"]) ?>
+                                </p>
+                                <p class="cart-text lead">
                                     <strong>Stock:</strong> <?= $product["stock"] ?>
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a href="/product?id=<?= $product["id"] ?>" class="btn btn btn-outline-primary">Info</a>
-                                        <!-- TODO: add to cart functionality from this page -->
                                         <?php if (isset($_SESSION["user"])) : ?>
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addToCartModal<?= $product["id"] ?>">
                                                 Add To Cart
